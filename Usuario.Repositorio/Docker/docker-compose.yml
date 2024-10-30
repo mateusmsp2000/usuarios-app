@@ -1,0 +1,22 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:15
+    environment:
+      POSTGRES_USER: usuarios
+      POSTGRES_PASSWORD: 123
+      POSTGRES_DB: usuarios
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - usuario-network
+
+volumes:
+  postgres_data:
+
+networks:
+  usuario-network:
+    driver: bridge
