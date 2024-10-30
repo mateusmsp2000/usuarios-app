@@ -1,7 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Usuario.Infrastructure.EntityFrameworkCore;
 
-namespace Usuario.Domain.Builders
+namespace Usuario.Infrastructure.Builders
 {
     public class UsuarioBuilder : IUsuarioBuilder
     {
@@ -19,7 +19,7 @@ namespace Usuario.Domain.Builders
             return this;
         }
         
-        public async Task<Usuario?> Build(Guid id)
+        public async Task<Domain.Usuario?> Build(Guid id)
         {
             var query = _context.Usuarios
                 .Include(u => u.Localizacoes)  

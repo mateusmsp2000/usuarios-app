@@ -1,6 +1,6 @@
+using Usuario.Commands;
+using Usuario.Commands.Localizacoes;
 using Usuario.Host.DTOs;
-using Usuario.Infrastructure.Commands;
-using Usuario.Infrastructure.Models.Localizacoes.Commands;
 
 namespace Usuario.Host.Builders;
 

@@ -1,5 +1,7 @@
-using Usuario.Infrastructure.Commands;
-using Usuario.Infrastructure.Models.Localizacoes;
+using Usuario.Commands;
+using Usuario.Domain.Enums;
+using Usuario.Domain.Localizacoes;
+using Usuario.Domain.Services.ValidatorService;
 
 namespace Usuario.Domain;
 
@@ -14,8 +16,13 @@ public class Usuario
     public string Telefone { get; set; } 
     public List<Localizacao> Localizacoes { get; init; } = new List<Localizacao>();
 
-    public void Inserir(InserirUsuarioCommand comando)
+    public InserirUsuarioValidacaoEnum Inserir(InserirUsuarioCommand comando, IUsuarioValidatorService usuarioValidatorService)
     {
+        var resultadoValidacao = usuarioValidatorService.ValidarInsercao(comando);
+        if (resultadoValidacao != InserirUsuarioValidacaoEnum.Ok)
+        {
+            return resultadoValidacao;
+        }
         Id = Guid.NewGuid();
         Email = comando.Email;
         Genero = comando.Genero;
@@ -29,10 +36,17 @@ public class Usuario
             localizacao.Inserir(Id, localizacaoInserir);
             Localizacoes.Add(localizacao);
         }
+
+        return resultadoValidacao;
     }
     
-    public void Atualizar(AtualizarUsuarioCommand comando)
+    public AtualizarUsuarioValidacaoEnum Atualizar(AtualizarUsuarioCommand comando, IUsuarioValidatorService usuarioValidatorService)
     {
+        var resultadoValidacao = usuarioValidatorService.ValidarAtualizacao(comando);
+        if (resultadoValidacao != AtualizarUsuarioValidacaoEnum.Ok)
+        {
+            return resultadoValidacao;
+        }
         Email = comando.Email;
         Genero = comando.Genero;
         DataNascimento = comando.DataNascimento;
@@ -44,5 +58,7 @@ public class Usuario
             var localizacaoAtualizar = Localizacoes.FirstOrDefault(l => l.Id == localizacaoComando.Id);
             localizacaoAtualizar.Atualizar(Id, localizacaoComando);
         }
+
+        return resultadoValidacao;
     }
 }

@@ -1,7 +1,7 @@
 using System.Text.Json.Serialization;
-using Usuario.Infrastructure.Models.Localizacoes.Commands;
+using Usuario.Commands.Localizacoes;
 
-namespace Usuario.Infrastructure.Models.Localizacoes;
+namespace Usuario.Domain.Localizacoes;
 
 public class Localizacao
 {

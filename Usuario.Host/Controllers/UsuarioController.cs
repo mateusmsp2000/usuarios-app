@@ -1,4 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
+using Usuario.Application.Services;
+using Usuario.Domain.Enums;
 using Usuario.Domain.Services;
 using Usuario.Host.ApplicationServices;
 using Usuario.Host.Builders;
@@ -23,18 +25,29 @@ namespace Usuario.Host.Controllers
         }
         
         [HttpPost]
-        public async Task<ActionResult<Domain.Usuario>> CreateUsuario(InserirUsuarioInput comando)
+        public async Task<ActionResult<Domain.Usuario>> Adicionar(InserirUsuarioInput comando)
+        {
+            var resultadoValidacao = await _usuarioService.Adicionar(DomainCommandsBuilder.BuildInserirUsuarioCommand(comando));
+            if (resultadoValidacao != InserirUsuarioValidacaoEnum.Ok)
+            {
+                return BadRequest(resultadoValidacao);
+            }
+            return Ok(resultadoValidacao);
+        }
+        
+        [HttpPost]
+        [Route("usuarioAleatorio")]
+        public async Task<ActionResult<Domain.Usuario>> AdicionarUsuarioAleatorio()
         {
             var usuarioAleatorio = await _usuarioApplicationService.ObterUsuarioAleatorio();
 
             var localizacao = new InserirLocalizacaoInput()
             {
-                IdUsuario = comando.Id,
                 Pais = usuarioAleatorio.Location.Country,
                 Cidade = usuarioAleatorio.Location.City,
             };
 
-            comando = new InserirUsuarioInput()
+            var comando = new InserirUsuarioInput()
             {
                 Email = usuarioAleatorio.Email,
                 PrimeiroNome = usuarioAleatorio.Name.First,
@@ -44,21 +57,28 @@ namespace Usuario.Host.Controllers
                 Localizacoes = [localizacao]
             };
             
-            var teste = DomainCommandsBuilder.BuildInserirUsuarioCommand(comando);
-            await _usuarioService.Adicionar(teste);
-            return Ok();
+            var resultadoValidacao = await _usuarioService.Adicionar(DomainCommandsBuilder.BuildInserirUsuarioCommand(comando));
+            if (resultadoValidacao != InserirUsuarioValidacaoEnum.Ok)
+            {
+                return BadRequest(resultadoValidacao);
+            }
+            return Ok(resultadoValidacao);
         }
         
         [HttpPut]
-        public async Task<IActionResult> UpdateUsuario(AtualizarUsuarioInput usuario)
+        public async Task<IActionResult> Atualizar(AtualizarUsuarioInput usuario)
         {
-            var teste = DomainCommandsBuilder.BuildAtualizarUsuarioCommand(usuario);
-            await _usuarioService.Atualizar(teste);
+            var resultadoValidacao =
+                await _usuarioService.Atualizar(DomainCommandsBuilder.BuildAtualizarUsuarioCommand(usuario));
+            if (resultadoValidacao != AtualizarUsuarioValidacaoEnum.Ok)
+            {
+                return BadRequest(resultadoValidacao);
+            }
             return NoContent();
         }
         
         [HttpDelete("{id}")]
-        public async Task<IActionResult> DeleteUsuario(Guid id)
+        public async Task<IActionResult> Remover(Guid id)
         {
             await _usuarioService.Remover(id);
             return NoContent();

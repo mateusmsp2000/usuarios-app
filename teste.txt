@@ -1,0 +1,124 @@
+usuarios-app
+├── src
+│   ├── UsuariosApp
+│   │   ├── Application
+│   │   │   ├── Commands
+│   │   │   │   ├── CriarUsuarioCommand
+│   │   │   │   ├── AtualizarUsuarioCommand
+│   │   │   │   ├── DeletarUsuarioCommand
+│   │   │   │   └── Handlers
+│   │   │   │       ├── CriarUsuarioCommandHandler
+│   │   │   │       ├── AtualizarUsuarioCommandHandler
+│   │   │   │       └── DeletarUsuarioCommandHandler
+│   │   │   └── Queries
+│   │   │       ├── GetUsuarioByIdQuery
+│   │   │       ├── GetAllUsuariosQuery
+│   │   │       └── Handlers
+│   │   │           ├── GetUsuarioByIdQueryHandler
+│   │   │           └── GetAllUsuariosQueryHandler
+│   │   │
+│   │   ├── Domain
+│   │   │   ├── Entities
+│   │   │   │   ├── Usuario
+│   │   │   │   └── Localizacao
+│   │   │   └── ValueObjects
+│   │   │       └── Endereco
+│   │   │
+│   │   ├── Infrastructure
+│   │   │   ├── Repositories
+│   │   │   │   ├── IUsuarioRepository
+│   │   │   │   └── UsuarioRepository
+│   │   │   ├── DbContext
+│   │   │   │   └── ApplicationDbContext
+│   │   │   └── Migrations
+│   │   │
+│   │   └── Presentation
+│   │       ├── Controllers
+│   │       │   └── UsuariosController
+│   │       └── DTOs
+│   │           ├── UsuarioDto
+│   │           └── LocalizacaoDto
+│   │
+│   └── Tests
+│       ├── ApplicationTests
+│       │   ├── Commands
+│       │   │   └── CriarUsuarioCommandTests
+│       │   └── Queries
+│       │       └── GetAllUsuariosQueryTests
+│       │
+│       ├── DomainTests
+│       │   └── UsuarioTests
+│       │
+│       └── InfrastructureTests
+│           └── UsuarioRepositoryTests
+│
+├── README.md
+└── ... outros arquivos de configuração ...
+
+
+
+📦 usuarios-app
+ ┣ 📂 Application
+ ┃ ┣ 📂 DTOs
+ ┃ ┃ ┗ 📜 UsuarioDto.cs
+ ┃ ┣ 📂 Services
+ ┃ ┃ ┗ 📜 UsuarioService.cs
+ ┃
+ ┣ 📂 Domain
+ ┃ ┣ 📂 Entities
+ ┃ ┃ ┗ 📜 Usuario.cs
+ ┃
+ ┣ 📂 Infrastructure
+ ┃ ┣ 📂 EntityFrameworkCore
+ ┃ ┃ ┗ 📜 ApplicationDbContext.cs
+ ┃ ┣ 📂 Repositories
+ ┃ ┃ ┣ 📜 IUsuarioReadRepository.cs
+ ┃ ┃ ┣ 📜 IUsuarioRepository.cs
+ ┃ ┃ ┣ 📜 UsuarioReadRepository.cs
+ ┃ ┃ ┗ 📜 UsuarioRepository.cs
+ ┃
+ ┗ 📂 API
+   ┣ 📂 Controllers
+   ┃ ┗ 📜 UsuariosController.cs
+
+
+   __________________________________________________________________________________________________________________
+
+   📦 usuarios-app
+ ┣ 📂 Application
+ ┃ ┣ 📂 Builders
+ ┃ ┃ ┗ 📜 UsuarioBuilder.cs
+ ┃ ┣ 📂 DTOs
+ ┃ ┃ ┗ 📜 UsuarioDto.cs
+ ┃ ┣ 📂 Services
+ ┃ ┃ ┗ 📜 UsuarioService.cs
+ ┃ ┣ 📂 Commands
+ ┃ ┃ ┣ 📜 CreateUsuarioCommand.cs
+ ┃ ┃ ┗ 📜 UpdateUsuarioCommand.cs
+ ┃ ┣ 📂 Queries
+ ┃ ┃ ┣ 📜 GetUsuarioByIdQuery.cs
+ ┃ ┃ ┗ 📜 GetAllUsuariosQuery.cs
+ ┃ ┣ 📂 Handlers
+ ┃ ┃ ┣ 📜 CreateUsuarioCommandHandler.cs
+ ┃ ┃ ┣ 📜 UpdateUsuarioCommandHandler.cs
+ ┃ ┃ ┣ 📜 GetUsuarioByIdQueryHandler.cs
+ ┃ ┃ ┗ 📜 GetAllUsuariosQueryHandler.cs
+ ┃
+ ┣ 📂 Domain
+ ┃ ┣ 📂 Entities
+ ┃ ┃ ┗ 📜 Usuario.cs
+ ┃ ┣ 📂 ValueObjects
+ ┃ ┃ ┗ 📜 Email.cs
+ ┃
+ ┣ 📂 Infrastructure
+ ┃ ┣ 📂 EntityFrameworkCore
+ ┃ ┃ ┗ 📜 ApplicationDbContext.cs
+ ┃ ┣ 📂 Repositories
+ ┃ ┃ ┣ 📜 IUsuarioRepository.cs
+ ┃ ┃ ┣ 📜 IUsuarioReadRepository.cs
+ ┃ ┃ ┣ 📜 UsuarioRepository.cs
+ ┃ ┃ ┗ 📜 UsuarioReadRepository.cs
+ ┃
+ ┗ 📂 API
+   ┣ 📂 Controllers
+   ┃ ┗ 📜 UsuariosController.cs

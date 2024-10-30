@@ -1,4 +1,4 @@
-namespace Usuario.Domain.Services.DTOs;
+namespace Usuario.Host.ApplicationServices.DTOs;
 
 public class UsuarioAleatorioDto
 {

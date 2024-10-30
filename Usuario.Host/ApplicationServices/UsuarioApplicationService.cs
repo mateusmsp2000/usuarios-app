@@ -1,5 +1,5 @@
 using System.Text.Json;
-using Usuario.Domain.Services.DTOs;
+using Usuario.Host.ApplicationServices.DTOs;
 
 namespace Usuario.Host.ApplicationServices;
 

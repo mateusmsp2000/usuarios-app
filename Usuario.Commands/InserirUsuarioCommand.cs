@@ -1,6 +1,6 @@
-using Usuario.Infrastructure.Models.Localizacoes.Commands;
+using Usuario.Commands.Localizacoes;
 
-namespace Usuario.Infrastructure.Commands;
+namespace Usuario.Commands;
 
 public class InserirUsuarioCommand
 {

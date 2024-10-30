@@ -1,4 +1,4 @@
-namespace Usuario.Infrastructure.Commands;
+namespace Usuario.Commands;
 
 public class ExcluirUsuarioCommand
 {

@@ -1,7 +1,9 @@
 using Microsoft.EntityFrameworkCore;
-using Usuario.Domain.Builders;
+using Usuario.Application.Services;
 using Usuario.Domain.Services;
+using Usuario.Domain.Services.ValidatorService;
 using Usuario.Host.ApplicationServices;
+using Usuario.Infrastructure.Builders;
 using Usuario.Infrastructure.EntityFrameworkCore;
 using Usuario.Infrastructure.Repositories;
 using Usuario.Infrastructure.Repositories.Read;
@@ -17,6 +19,7 @@ builder.Services.AddControllers();
 
 builder.Services.AddHttpClient();
 builder.Services.AddTransient<IUsuarioService, UsuarioService>();
+builder.Services.AddTransient<IUsuarioValidatorService, UsuarioValidatorService>();
 builder.Services.AddTransient<IUsuarioApplicationService, UsuarioApplicationService>();
 builder.Services.AddTransient<IUsuarioBuilder, UsuarioBuilder>();
 builder.Services.AddTransient<IUsuarioRepository, UsuarioRepository>();
@@ -33,7 +36,6 @@ using (var scope = app.Services.CreateScope())
     dbContext.Database.Migrate();
 }
 
-// Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();

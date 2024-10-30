@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using Usuario.Infrastructure.Models.Localizacoes;
+using Usuario.Domain.Localizacoes;
 
 namespace Usuario.Infrastructure.EntityFrameworkCore;
 
