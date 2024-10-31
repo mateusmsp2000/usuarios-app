@@ -9,41 +9,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1304ed1d-4c1e-4fe1-ab01-746717782b47" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Usuario.Domain/Enums/AtualizarUsuarioValidacaoEnum.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Usuario.Domain/Enums/InserirUsuarioValidacaoEnum.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Usuario.Domain/Services/ValidatorService/IUsuarioValidatorService.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Usuario.Domain/Services/ValidatorService/UsuarioValidatorService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Usuarios/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Usuarios/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Usuario.Domain/Services/IUsuarioService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Usuario.Application/Services/IUsuarioService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Usuario.Domain/Services/UsuarioService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Usuario.Application/Services/UsuarioService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Usuario.Domain/Usuario.Domain.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Usuario.Domain/Usuario.Domain.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Usuario.Host/ApplicationServices/DTOs/UsuarioAleatorioDto.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Usuario.Host/ApplicationServices/DTOs/UsuarioAleatorioDto.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Usuario.Host/ApplicationServices/IUsuarioApplicationService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Usuario.Host/ApplicationServices/IUsuarioApplicationService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Usuario.Host/ApplicationServices/UsuarioApplicationService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Usuario.Host/ApplicationServices/UsuarioApplicationService.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Usuario.Host/Builders/DomainCommandsBuilder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Usuario.Host/Builders/DomainCommandsBuilder.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Usuario.Host/Controllers/UsuarioController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Usuario.Host/Controllers/UsuarioController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Usuario.Host/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Usuario.Host/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Usuario.Host/Usuario.Host.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Usuario.Host/Usuario.Host.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Usuario.Repository/Builders/IUsuarioBuilder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Usuario.Infraestructure/Builders/IUsuarioBuilder.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Usuario.Repository/Builders/UsuarioBuilder.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Usuario.Infraestructure/Builders/UsuarioBuilder.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Usuario.Repository/Commands/AtualizarUsuarioCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Usuario.Commands/AtualizarUsuarioCommand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Usuario.Repository/Commands/ExcluirUsuarioCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Usuario.Commands/ExcluirUsuarioCommand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Usuario.Repository/Commands/InserirUsuarioCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Usuario.Commands/InserirUsuarioCommand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Usuario.Repository/Docker/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Usuario.Infraestructure/Docker/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Usuario.Repository/EntityFrameworkCore/ApplicationDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Usuario.Infraestructure/EntityFrameworkCore/ApplicationDbContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Usuario.Repository/EntityFrameworkCore/ApplicationDbContextFactory.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Usuario.Infraestructure/EntityFrameworkCore/ApplicationDbContextFactory.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Usuario.Repository/Migrations/20241029232444_InitialCreate.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Usuario.Infraestructure/Migrations/20241029232444_InitialCreate.Designer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Usuario.Repository/Migrations/20241029232444_InitialCreate.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Usuario.Infraestructure/Migrations/20241029232444_InitialCreate.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Usuario.Repository/Migrations/ApplicationDbContextModelSnapshot.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Usuario.Infraestructure/Migrations/ApplicationDbContextModelSnapshot.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Usuario.Repository/Models/Localizacoes/Commands/AtualizarLocalizacaoCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Usuario.Commands/Localizacoes/AtualizarLocalizacaoCommand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Usuario.Repository/Models/Localizacoes/Commands/InserirLocalizacaoCommand.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Usuario.Commands/Localizacoes/InserirLocalizacaoCommand.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Usuario.Repository/Models/Localizacoes/Localizacao.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Usuario.Domain/Localizacoes/Localizacao.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Usuario.Repository/Models/Usuario.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Usuario.Domain/Usuario.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Usuario.Repository/Repositories/IUsuarioRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Usuario.Infraestructure/Repositories/IUsuarioRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Usuario.Repository/Repositories/Read/IUsuarioReadRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Usuario.Infraestructure/Repositories/Read/IUsuarioReadRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Usuario.Repository/Repositories/Read/UsuarioReadRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Usuario.Infraestructure/Repositories/Read/UsuarioReadRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Usuario.Repository/Repositories/UsuarioRepository.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Usuario.Infraestructure/Repositories/UsuarioRepository.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Usuario.Repository/Usuario.Repository.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Usuario.Infraestructure/Usuario.Infraestructure.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Usuario.Domain/Services/ValidatorService/IUsuarioValidatorService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Usuario.Domain/Services/ValidatorService/IUsuarioValidatorService.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Usuario.Domain/Services/ValidatorService/UsuarioValidatorService.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Usuario.Domain/Services/ValidatorService/UsuarioValidatorService.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Usuarios.sln" beforeDir="false" afterPath="$PROJECT_DIR$/Usuarios.sln" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -63,15 +31,6 @@
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/21b1eaa568d34fdf8290fed0f61bde471dc400/af/5852196a/ControllerEndpointRouteBuilderExtensions.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/de1f43dfaff644f09cd33b44e158280330400/bc/671cf4fc/ServiceProvider.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Usuario.Host/Program.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Usuario.Repositorio/Commands/AtualizarUsuarioCommand.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Usuario.Repositorio/Commands/ExcluirUsuarioCommand.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Usuario.Repositorio/Commands/InserirUsuarioCommand.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Usuario.Repositorio/Models/Localizacoes/Commands/AtualizarLocalizacaoCommand.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Usuario.Repositorio/Models/Localizacoes/Commands/InserirLocalizacaoCommand.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Usuario.Repositorio/Models/Localizacoes/Localizacao.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Usuario.Repositorio/Models/Usuario.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Usuario.Repositorio/Repositories/IUsuarioRepository.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Usuario.Repositorio/Repositories/UsuarioRepository.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 4
@@ -148,7 +107,7 @@
       <workItem from="1730258344911" duration="543000" />
       <workItem from="1730326162240" duration="580000" />
       <workItem from="1730326765932" duration="820000" />
-      <workItem from="1730329371060" duration="2571000" />
+      <workItem from="1730329371060" duration="3872000" />
     </task>
     <servers />
   </component>
