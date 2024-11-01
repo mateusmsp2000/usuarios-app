@@ -9,6 +9,17 @@ O intuito dessa aplicação é possibilitar relizar operações de CRUD para usu
 * Edição de usuário.
 * Remoção de usuário.
 
+## Para rodar a aplicação:
+**⚠️ Observação:** É necessário possuir o docker instalado na maquina para executar a aplicação utilizando a abordagem abaixo.
+
+```bash
+docker-compose up --build
+```
+
+## Disponibilidade
+A aplicação com documentação swagger estará disponível em http://localhost:5000/swagger/index.html
+
+
 ## Frameworks utilizados
 * Entity Framework Core - (Utilização de migration para criação das tabelas)
 
@@ -41,11 +52,6 @@ O intuito dessa aplicação é possibilitar relizar operações de CRUD para usu
 * Monitorar banco de dados através do prometheus e grafana.
 * Criar testes unitários de todas as camadas, em especial a de domínio por conter lógica de negócios.
 
-## Para rodar a aplicação:
-**⚠️ Observação:** É necessário possuir o docker instalado na maquina para executar a aplicação utilizando a abordagem abaixo.
-
-```bash
-docker-compose up --build
-```
-
+## Diagrama de entidades
+![alt text](image.png)
 
