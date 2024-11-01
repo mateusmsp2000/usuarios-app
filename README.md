@@ -1,57 +1,64 @@
 # Usuarios-App
 
-## Prefácio
-O intuito dessa aplicação é possibilitar relizar operações de CRUD para usuários do sistema, portanto esses usuários serão gravados em um banco de dados PostgresSql.
+### Prefácio
 
-## Funcionalidades
-* Cadastro de usuário manualmente (Informando dados).
-* Cadastro de usuário automaticamente (Dados auto gerados da api pública Random User).
-* Edição de usuário.
-* Remoção de usuário.
-* Listagem de relatório de usuários.
+Esta aplicação permite realizar operações de CRUD para usuários do sistema, armazenando esses dados em um banco de dados PostgreSQL.
 
-## Para rodar a aplicação:
-**⚠️ Observação:** É necessário possuir o docker instalado na maquina para executar a aplicação utilizando a abordagem abaixo.
+### Funcionalidades
+
+- **Cadastro manual de usuário** (informando dados específicos).
+- **Cadastro automático de usuário** (dados gerados automaticamente da API pública Random User).
+- **Edição de usuário**.
+- **Remoção de usuário**.
+
+### Como executar a aplicação
+
+> **Observação:** É necessário ter o Docker instalado na máquina para utilizar a abordagem abaixo.
 
 ```bash
 docker-compose up --build
 ```
 
-## Disponibilidade
-A aplicação com documentação swagger estará disponível em http://localhost:5000/swagger/index.html
+### Disponibilidade
 
+A aplicação, juntamente com a documentação Swagger, estará disponível em: [http://localhost:5000/swagger/index.html](http://localhost:5000/swagger/index.html)
 
-## Frameworks utilizados
-* Entity Framework Core - (Utilização de migration para criação das tabelas)
+### Frameworks utilizados
 
-## Tabelas criadas no banco de dados:
-| Tabela                | Descrição                                    |
-|----------------------|----------------------------------------------|
-| **Usuarios**         | Armazena informações dos usuários do sistema. |
-| **UsuarioLocalizacoes** | Armazena as localizações / endereços associadas aos usuários. |
+**Entity Framework Core** - Utilizado para gerenciar a criação e manutenção de tabelas por meio de migrações, além de simplificar operações de leitura e escrita no banco de dados. O EF Core permite criar consultas avançadas, buscar registros, e realizar operações CRUD de forma eficiente e integrada com a API, facilitando o desenvolvimento e a manutenção dos dados armazenados.
 
-## Endpoints
-| Tipo   | Rota                          | Descrição                           |
-|--------|-------------------------------|-------------------------------------|
-| **GET**    | `/api/read/UsuarioRead`         | Lista todos os usuários cadastrados conforme paginação. |
-| **GET**    | `/api/read/UsuarioRead/{id}`     | Obter dados de um usuário específico pelo ID. |
-| **POST**   | `/api/Usuario`  | Cadastra um novo usuário com dados informados manualmente pelo body. |
-| **POST**   | `/api/Usuario/usuarioAleatorio`  | Cadastra um novo usuário com dados aleatórios gerados pela API pública Random User. |
-| **PUT**    | `/api/Usuario`                   | Atualiza os dados de um usuário existente. |
-| **DELETE** | `/api/Usuario/{id}`              | Exclui um usuário específico pelo ID. |
+### Tabelas criadas no banco de dados
 
+| Tabela               | Descrição                                                |
+|----------------------|----------------------------------------------------------|
+| `Usuarios`           | Armazena informações dos usuários do sistema.            |
+| `UsuarioLocalizacoes` | Armazena localizações/endereços associados aos usuários. |
 
-## Padrões de projetos utilizados:
-* **Builder** -> Para a criação de objetos complexos.
-* **Command** -> PAra que seja possível encapsular uma solicitação como um objeto, permitindo parametrizar outros objetos com diferentes requisições.
+### Endpoints
 
-## Objetivo 
-* Criar aplicação simples, escalável, que facilite a manutenção no futuro e seja extensível conforme surja novas demandas ou alterações em regras de negócio.
+| Tipo | Rota                         | Descrição                                                     |
+|------|-------------------------------|----------------------------------------------------------------|
+| GET  | `/api/read/UsuarioRead`       | Lista todos os usuários cadastrados com paginação.             |
+| GET  | `/api/read/UsuarioRead/{id}`  | Obtém dados de um usuário específico pelo ID.                  |
+| POST | `/api/Usuario`                | Cadastra um novo usuário com dados informados manualmente.     |
+| POST | `/api/Usuario/usuarioAleatorio` | Cadastra um novo usuário com dados aleatórios da API Random User. |
+| PUT  | `/api/Usuario`                | Atualiza os dados de um usuário existente.                     |
+| DELETE | `/api/Usuario/{id}`         | Exclui um usuário específico pelo ID.                          |
 
-## Possíveis melhorias para versão 2.0
-* Integrar api com prometheus e grafana para obtenção de métricas.
-* Monitorar banco de dados através do prometheus e grafana.
-* Criar testes unitários de todas as camadas, em especial a de domínio por conter lógica de negócios.
+### Padrões de projeto utilizados
+
+- **Builder** - Para criação de objetos complexos.
+- **Command** - Encapsula uma solicitação como um objeto, permitindo parametrizar objetos com diferentes requisições.
+
+### Objetivo
+
+Criar uma aplicação simples, escalável e fácil de manter, que seja extensível para suportar novas demandas e alterações em regras de negócio.
+
+### Possíveis melhorias para a versão 2.0
+
+- Integrar a API com Prometheus e Grafana para monitoramento de métricas.
+- Monitorar o banco de dados com Prometheus e Grafana.
+- Implementar testes unitários para todas as camadas, especialmente a camada de domínio, devido à sua lógica de negócios.
 
 ## Diagrama de entidades
 ![alt text](image.png)
