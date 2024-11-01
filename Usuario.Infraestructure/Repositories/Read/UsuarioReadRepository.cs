@@ -11,17 +11,23 @@ public class UsuarioReadRepository : IUsuarioReadRepository
     {
         _context = context;
     }
-    
-    public async Task<List<Domain.Usuario>> BuscarTodos()
+
+    public async Task<List<Domain.Usuario>> BuscarTodos(int page, int pageSize)
     {
-        return await _context.Usuarios
+        var usuarios = await _context.Usuarios
             .Include(u => u.Localizacoes)
             .AsNoTracking()
+            .Skip((page - 1) * pageSize) 
+            .Take(pageSize) 
             .ToListAsync();
+
+        return usuarios;
     }
-        
+    
     public async Task<Domain.Usuario> BuscarPorId(Guid id)
     {
-        return await _context.Usuarios.FindAsync(id);
+        return (await _context.Usuarios
+            .Include(u => u.Localizacoes) 
+            .FirstOrDefaultAsync(u => u.Id == id))!; 
     }
 }

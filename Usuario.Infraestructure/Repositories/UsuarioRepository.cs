@@ -1,4 +1,3 @@
-using Microsoft.EntityFrameworkCore;
 using Usuario.Infrastructure.EntityFrameworkCore;
 
 namespace Usuario.Infrastructure.Repositories

@@ -2,11 +2,10 @@ namespace Usuario.Host.ApplicationServices.DTOs;
 
 public class UsuarioAleatorioDto
 {
-    // Classes para deserializar a resposta da API
     public class RandomUserResponse
     {
-        public UsuarioDto[] Results { get; set; } // Aqui você pode manter como array
-        public InfoDto Info { get; set; } // Adicionando a classe Info para deserialização
+        public UsuarioDto[] Results { get; set; }
+        public InfoDto Info { get; set; } 
     }
 
     public class UsuarioDto
@@ -33,7 +32,6 @@ public class UsuarioAleatorioDto
         public string City { get; set; }
         public string State { get; set; }
         public string Country { get; set; }
-        public int Postcode { get; set; } // Alterado para string
         public CoordinatesDto Coordinates { get; set; }
         public TimezoneDto Timezone { get; set; }
     }
@@ -62,8 +60,7 @@ public class UsuarioAleatorioDto
         public string Medium { get; set; }
         public string Thumbnail { get; set; }
     }
-
-    // Classe para deserializar a seção 'info'
+    
     public class InfoDto
     {
         public string Seed { get; set; }

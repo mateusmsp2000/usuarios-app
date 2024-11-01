@@ -1,32 +1,34 @@
 using System.Text.Json;
+using Microsoft.Extensions.Options;
 using Usuario.Host.ApplicationServices.DTOs;
+using Usuario.Host.DTOs;
 
 namespace Usuario.Host.ApplicationServices;
 
 public class UsuarioApplicationService : IUsuarioApplicationService
 {
     private readonly HttpClient _httpClient;
+    private readonly string? _randomUserApiUrl;
 
-    public UsuarioApplicationService(HttpClient httpClient)
+    public UsuarioApplicationService(HttpClient httpClient, IConfiguration configuration)
     {
         _httpClient = httpClient;
+        _randomUserApiUrl = configuration["RandomUserApiUrl"];
     }
 
     public async Task<UsuarioAleatorioDto.UsuarioDto?> ObterUsuarioAleatorio()
     {
-        var response = await _httpClient.GetAsync("https://randomuser.me/api/");
+        var response = await _httpClient.GetAsync(_randomUserApiUrl);
         response.EnsureSuccessStatusCode();
 
         var jsonResponse = await response.Content.ReadAsStringAsync();
-        Console.WriteLine(jsonResponse); // Verifique a resposta JSON
-
         var randomUserResponse = JsonSerializer.Deserialize<UsuarioAleatorioDto.RandomUserResponse>(jsonResponse,
             new JsonSerializerOptions
             {
-                PropertyNameCaseInsensitive = true // Isso permite que a deserialização seja feita sem se preocupar com maiúsculas/minúsculas
+                PropertyNameCaseInsensitive = true 
             });
 
-        return randomUserResponse?.Results.FirstOrDefault(); // Retorna o primeiro usuário ou null
+        return randomUserResponse?.Results.FirstOrDefault(); 
     }
 
 

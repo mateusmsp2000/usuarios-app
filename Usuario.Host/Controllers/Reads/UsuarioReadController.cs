@@ -14,21 +14,15 @@ public class UsuarioReadController : ControllerBase
         _usuarioReadRepository = usuarioReadRepository;
     }
         
-    [HttpGet] // Rota: GET api/read/UsuarioRead
-    public async Task<ActionResult<List<Domain.Usuario>>> ObterUsuarios()
+    [HttpGet] 
+    public async Task<ActionResult<List<Domain.Usuario>>> BuscarTodos([FromQuery] int page = 1, int pageSize = 100)
     {
-        return Ok(await _usuarioReadRepository.BuscarTodos());
+        return Ok(await _usuarioReadRepository.BuscarTodos(page, pageSize));
     }
-        
-    // Rota específica para ObterUsuarioPorId
-    [HttpGet("{id}")] // Rota: GET api/read/UsuarioRead/{id}
-    public async Task<IActionResult> ObterUsuarioPorId(Guid id)
+    
+    [HttpGet("{id}")] 
+    public async Task<IActionResult> BuscarPorId(Guid id)
     {
-        var usuario = await _usuarioReadRepository.BuscarPorId(id);
-        if (usuario == null)
-        {
-            return NotFound(); // Retorna 404 se não encontrar
-        }
-        return Ok(usuario);
+        return Ok(await _usuarioReadRepository.BuscarPorId(id));
     }
 }

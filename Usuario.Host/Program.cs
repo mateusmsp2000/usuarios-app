@@ -1,49 +1,60 @@
-using Microsoft.EntityFrameworkCore;
-using Usuario.Application.Services;
-using Usuario.Domain.Services;
-using Usuario.Domain.Services.ValidatorService;
-using Usuario.Host.ApplicationServices;
-using Usuario.Infrastructure.Builders;
-using Usuario.Infrastructure.EntityFrameworkCore;
-using Usuario.Infrastructure.Repositories;
-using Usuario.Infrastructure.Repositories.Read;
+    using Microsoft.EntityFrameworkCore;
+    using Usuario.Application.Services;
+    using Usuario.Domain.Services.ValidatorService;
+    using Usuario.Host.ApplicationServices;
+    using Usuario.Infrastructure.Builders;
+    using Usuario.Infrastructure.EntityFrameworkCore;
+    using Usuario.Infrastructure.Repositories;
+    using Usuario.Infrastructure.Repositories.Read;
 
-var builder = WebApplication.CreateBuilder(args);
+    var builder = WebApplication.CreateBuilder(args);
+    
+    builder.Services.AddEndpointsApiExplorer();
+    builder.Services.AddSwaggerGen();
+    builder.Services.AddControllers(); 
+    
+    builder.Services.AddCors(options =>
+    {
+        options.AddPolicy("AllowLocalhost", builder => builder
+            .WithOrigins("http://localhost:5500") 
+            .AllowAnyMethod()
+            .AllowAnyHeader()
+            .AllowCredentials()); 
+    });
+    
+    builder.Services.AddHttpClient();
+    builder.Services.AddSingleton<IConfiguration>(builder.Configuration);
+    builder.Services.AddHttpClient<IUsuarioApplicationService, UsuarioApplicationService>();
+    builder.Services.AddTransient<IUsuarioService, UsuarioService>();
+    builder.Services.AddTransient<IUsuarioValidatorService, UsuarioValidatorService>();
+    builder.Services.AddTransient<IUsuarioApplicationService, UsuarioApplicationService>();
+    builder.Services.AddTransient<IUsuarioBuilder, UsuarioBuilder>();
+    builder.Services.AddTransient<IUsuarioRepository, UsuarioRepository>();
+    builder.Services.AddTransient<IUsuarioReadRepository, UsuarioReadRepository>();
 
-// Add services to the container.
-// Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
-builder.Services.AddEndpointsApiExplorer();
-builder.Services.AddSwaggerGen();
+    builder.Services.AddDbContext<ApplicationDbContext>(options =>
+        options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
 
-builder.Services.AddControllers(); 
+    var app = builder.Build();
+    using (var scope = app.Services.CreateScope())
+    {
+        var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
+        dbContext.Database.Migrate();
+    }
 
-builder.Services.AddHttpClient();
-builder.Services.AddTransient<IUsuarioService, UsuarioService>();
-builder.Services.AddTransient<IUsuarioValidatorService, UsuarioValidatorService>();
-builder.Services.AddTransient<IUsuarioApplicationService, UsuarioApplicationService>();
-builder.Services.AddTransient<IUsuarioBuilder, UsuarioBuilder>();
-builder.Services.AddTransient<IUsuarioRepository, UsuarioRepository>();
-builder.Services.AddTransient<IUsuarioReadRepository, UsuarioReadRepository>();
+    IConfigurationRoot configuration = new ConfigurationBuilder()
+        .SetBasePath(Directory.GetCurrentDirectory())
+        .AddJsonFile("appsettings.json")
+        .Build();
 
-builder.Services.AddDbContext<ApplicationDbContext>(options =>
-    options.UseNpgsql(builder.Configuration.GetConnectionString("DefaultConnection")));
+    if (app.Environment.IsDevelopment())
+    {
+        app.UseSwagger();
+        app.UseSwaggerUI();
+    }
+    
+    app.UseCors("AllowLocalhost"); 
 
-var app = builder.Build();
-
-using (var scope = app.Services.CreateScope())
-{
-    var dbContext = scope.ServiceProvider.GetRequiredService<ApplicationDbContext>();
-    dbContext.Database.Migrate();
-}
-
-if (app.Environment.IsDevelopment())
-{
-    app.UseSwagger();
-    app.UseSwaggerUI();
-}
-
-app.UseHttpsRedirection();
-
-app.MapControllers(); 
-
-app.Run();
+    app.UseHttpsRedirection();
+    app.MapControllers(); 
+    app.Run();

@@ -1,5 +1,3 @@
-using Usuario.Domain;
-
 namespace Usuario.Infrastructure.Repositories;
 
 public interface IUsuarioRepository
