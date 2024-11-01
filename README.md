@@ -8,6 +8,7 @@ O intuito dessa aplicação é possibilitar relizar operações de CRUD para usu
 * Cadastro de usuário automaticamente (Dados auto gerados da api pública Random User).
 * Edição de usuário.
 * Remoção de usuário.
+* Listagem de relatório de usuários.
 
 ## Para rodar a aplicação:
 **⚠️ Observação:** É necessário possuir o docker instalado na maquina para executar a aplicação utilizando a abordagem abaixo.
