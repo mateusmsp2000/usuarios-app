@@ -24,10 +24,10 @@
     
     builder.Services.AddHttpClient();
     builder.Services.AddSingleton<IConfiguration>(builder.Configuration);
-    builder.Services.AddHttpClient<IUsuarioApplicationService, UsuarioApplicationService>();
+    builder.Services.AddHttpClient<IUsuarioAleatorioAppService, UsuarioAleatorioAppService>();
     builder.Services.AddTransient<IUsuarioService, UsuarioService>();
     builder.Services.AddTransient<IUsuarioValidatorService, UsuarioValidatorService>();
-    builder.Services.AddTransient<IUsuarioApplicationService, UsuarioApplicationService>();
+    builder.Services.AddTransient<IUsuarioAleatorioAppService, UsuarioAleatorioAppService>();
     builder.Services.AddTransient<IUsuarioBuilder, UsuarioBuilder>();
     builder.Services.AddTransient<IUsuarioRepository, UsuarioRepository>();
     builder.Services.AddTransient<IUsuarioReadRepository, UsuarioReadRepository>();

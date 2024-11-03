@@ -5,12 +5,12 @@ using Usuario.Host.DTOs;
 
 namespace Usuario.Host.ApplicationServices;
 
-public class UsuarioApplicationService : IUsuarioApplicationService
+public class UsuarioAleatorioAppService : IUsuarioAleatorioAppService
 {
     private readonly HttpClient _httpClient;
     private readonly string? _randomUserApiUrl;
 
-    public UsuarioApplicationService(HttpClient httpClient, IConfiguration configuration)
+    public UsuarioAleatorioAppService(HttpClient httpClient, IConfiguration configuration)
     {
         _httpClient = httpClient;
         _randomUserApiUrl = configuration["RandomUserApiUrl"];

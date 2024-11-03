@@ -2,7 +2,7 @@ using Usuario.Host.ApplicationServices.DTOs;
 
 namespace Usuario.Host.ApplicationServices;
 
-public interface IUsuarioApplicationService
+public interface IUsuarioAleatorioAppService
 {
     Task<UsuarioAleatorioDto.UsuarioDto?> ObterUsuarioAleatorio();
 }

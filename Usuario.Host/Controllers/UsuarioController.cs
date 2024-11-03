@@ -14,14 +14,14 @@ namespace Usuario.Host.Controllers
     public class UsuarioController : ControllerBase
     {
         private readonly IUsuarioService _usuarioService; 
-        private readonly IUsuarioApplicationService _usuarioApplicationService;
+        private readonly IUsuarioAleatorioAppService _usuarioAleatorioAppService;
 
         public UsuarioController(
             IUsuarioService usuarioService,
-            IUsuarioApplicationService usuarioApplicationService)
+            IUsuarioAleatorioAppService usuarioAleatorioAppService)
         {
             _usuarioService = usuarioService;
-            _usuarioApplicationService = usuarioApplicationService;
+            _usuarioAleatorioAppService = usuarioAleatorioAppService;
         }
         
         [HttpPost]
@@ -39,7 +39,7 @@ namespace Usuario.Host.Controllers
         [Route("usuarioAleatorio")]
         public async Task<ActionResult<Domain.Usuario>> AdicionarUsuarioAleatorio()
         {
-            var usuarioAleatorio = await _usuarioApplicationService.ObterUsuarioAleatorio();
+            var usuarioAleatorio = await _usuarioAleatorioAppService.ObterUsuarioAleatorio();
 
             var localizacao = new InserirLocalizacaoInput()
             {
